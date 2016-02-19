@@ -40,7 +40,18 @@ class Vector(object):
 	# sum of square
 	def sum_of_squares(self, x):
 		return self.dot(x, x)
+	
+	# magnitude of length (length)
+	def magnitude(self, x): 
+		return math.sqrt(self.sum_of_squares(x))
+	
+	# distance of square of two vectors
+	def square_distance(self, x, y): 
+		return self.sum_of_squares(self.vector_subtract(x,y))
 
+	# distance of two vectors
+	def distance(self, x, y): 
+		return math.sqrt(self.square_distance(x,y))
 def main(): 
 	v = Vector([1,2], [1,2])
 	print v.vector_add(v.x, v.y)
@@ -51,5 +62,8 @@ def main():
 	print v.vector_mean(v.x)
 	print v.dot(v.x, v.y)
 	print v.sum_of_squares(v.x)	
+	print v.magnitude(v.x)	
+	print v.square_distance(v.x,v.y)
+	print v.distance(v.x,v.y)
 	
 if __name__=="__main__": main()
