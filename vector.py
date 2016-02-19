@@ -32,6 +32,15 @@ class Vector(object):
 		n = len(vectors)
 		v_sum = self.vector_sum(vectors)
 		return self.scalar_multiply(1./n, [v_sum]) 
+
+	#dot product of 2 vectors 
+	def dot(self, x, y): 
+		return sum(x_i*y_i for x_i, y_i in zip(x,y))
+
+	# sum of square
+	def sum_of_squares(self, x):
+		return self.dot(x, x)
+
 def main(): 
 	v = Vector([1,2], [1,2])
 	print v.vector_add(v.x, v.y)
@@ -40,7 +49,7 @@ def main():
 	print v.scalar_multiply(2,v.x)
 	print v.dot(v.x, v.y)
 	print v.vector_mean(v.x)
-
-	
+	print v.dot(v.x, v.y)
+	print v.sum_of_squares(v.x)	
 	
 if __name__=="__main__": main()
